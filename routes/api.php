@@ -7,12 +7,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthOtpController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'auth'], function ($router) {
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/update/profile/{id}', [AuthController::class, 'update']);
-    Route::get('/profile', [AuthController::class, 'profile']);
-    Route::post('/logout', [AuthController::class, 'logout']);
+Route::Group(['prefix' => 'auth'], function ($router) {
+    Route::Post('/register', [AuthController::class, 'register']);
+    Route::Post('/login', [AuthController::class, 'login']);
+    Route::Post('/update/profile/{id}', [AuthController::class, 'update']);
+    Route::Get('/profile', [AuthController::class, 'profile']);
+    Route::Post('/logout', [AuthController::class, 'logout']);
     //otp
     Route::Post('/otp/generate', [AuthOtpController::class, 'otpGenerate']);
     Route::Post('/otp/login', [AuthOtpController::class, 'loginWithOtp']);
@@ -24,3 +24,6 @@ Route::group(['prefix' => 'category'], function ($router) {
     Route::get('/subCategory', [SubCategoryController::class, 'showSubCategory']);
     Route::get('/subCategory/gallery/{sub}', [GalleryApiController::class, 'showGallery']);
 });
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods:  POST, GET, OPTIONS, PUT, DELETE');
+header('Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Origin, Authorization'); 
