@@ -8,8 +8,8 @@ use App\Http\Controllers\AuthOtpController;
 use Illuminate\Support\Facades\Route;
 
 Route::Group(['prefix' => 'auth'], function ($router) {
-    Route::Post('/register', [AuthController::class, 'register']);
-    Route::Post('/login', [AuthController::class, 'login']);
+    Route::match(['get', 'post'] ,'/register', [AuthController::class, 'register']);
+    Route::match(['get', 'post'] ,'/login', [AuthController::class, 'login']);
     Route::Post('/update/profile/{id}', [AuthController::class, 'update']);
     Route::Get('/profile', [AuthController::class, 'profile']);
     Route::Post('/logout', [AuthController::class, 'logout']);
