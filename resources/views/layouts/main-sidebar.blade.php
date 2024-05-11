@@ -36,6 +36,13 @@
                             <div class="clearfix"></div>
                         </a>
                     </li>
+                    <li>
+                    <a href="{{route('admin.providers.index')}}">
+                            <div class="pull-left"><i class="fa fa-user"></i><span
+                                    class="right-nav-text">Users</span></div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
                 
                    
                 </ul>

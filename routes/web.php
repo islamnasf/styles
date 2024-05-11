@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CategoryController as ControllersCategoryController;
 use App\Http\Controllers\GallaryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -46,6 +47,16 @@ route::group(['prefix' => 'dashboard/gallery/'], function () {
 //
 Route::get('/pdfdownload/{fileName}', [GallaryController::class, 'download'])->name('pdfDownload');
 //////////////
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/providers', [UserController::class, 'index'])->name('admin.providers.index');
+    Route::post('/providers', [UserController::class, 'store'])->name('admin.providers.store');
+    Route::put('/providers/{id}', [UserController::class, 'update'])->name('updateProviders');
+    Route::post('/providers/{id}', [UserController::class, 'destroy'])->name('admin.providers.destroy');
+    // Route::get('/providers/{id}/toggle-status', [UserController::class, 'toggleProviderStatus'])->name('admin.providers.toggle-status');
+});
+
 
 
 

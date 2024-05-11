@@ -49,10 +49,15 @@ dashboard
             </div>
         </div>
     </a>
-
+    <a href="{{ route('admin.providers.index') }}" class="col-md-4 mb-4"  >
+        <div class="card text-center bg-mauve" >
+            <div class="card-body" style="background-color: #2A132A;">
+                <i class="fa fa-user fa-3x mb-2 text-light "></i>
+                <h5 class="card-title text-light font-size-lg">Users </h5>
+            </div>
+        </div>
+    </a>
 </div>
-
-
 <!-- row closed -->
 @endsection
 @section('js')

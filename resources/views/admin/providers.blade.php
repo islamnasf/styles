@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-Providers
+Users
 @stop
 @endsection
 @section('page-header')
@@ -10,14 +10,14 @@ Providers
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Providers</h4>
+            <h4 class="mb-0">Users</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item">
                     <div>
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="font-size: 18px; font-family:Amiri;line-height: 1.2;"><i class="fa fa-user"></i> -
-                            Add New Providers
+                            Add New User
                         </button>
                     </div>
                 </li>
@@ -44,7 +44,7 @@ Providers
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Provider</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -58,24 +58,10 @@ Providers
                     </br>
                     <input type="text" name="username" class="form-control" placeholder="Username">
                     </br>
-                    <input type="text" name="phone" class="form-control" placeholder="Phone">
+                    <input type="text" name="email" class="form-control" placeholder="Email">
                     </br>
                     <input type="password" name="password" class="form-control" placeholder="Password">
                     </br>
-                    <input type="text" name="years_experience" class="form-control" placeholder="Years of Experience">
-                    </br>
-                    <label style="font-size: 13px; font-weight: bold;" class="ml-3"> Service </label>
-                    <select name="service_id" class="form-control">
-                        @foreach ($services as $service)
-                        <option value="{{ $service->id }}">{{ $service->service_name }}</option>
-                        @endforeach
-                    </select> </br>
-                    <label style="font-size: 13px; font-weight: bold;" class="ml-3">Location</label>
-                    <select name="location_id" class="form-control">
-                        @foreach ($locations as $location)
-                        <option value="{{ $location->id }}">{{ $location->title }}</option>
-                        @endforeach
-                    </select> </br>
                     <label style="font-size: 13px; font-weight: bold;" class="ml-3">Avatar (Optional)</label>
                     <input type="file" name="avater" class="form-control">
             </div>
@@ -100,12 +86,8 @@ Providers
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Username</th>
-                                <th>Phone</th>
-                                <th>Years of Experience</th>
-                                <th>Location </th>
-                                <th>Service </th>
+                                <th>email</th>
                                 <th>Avatar</th>
-                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -115,21 +97,7 @@ Providers
                                 <td>{{$provider->first_name}}</td>
                                 <td>{{$provider->last_name}}</td>
                                 <td>{{$provider->username}}</td>
-                                <td>{{$provider->phone}}</td>
-                                <td>{{$provider->years_experience}}</td>
-                                @if($provider->location_id !==null)
-                                <td>{{$provider->locations->title}}</td>
-                                @else
-                                <td>
-                                </td>
-                                @endif
-                                @if($provider->service_id !==null)
-                                <td>{{$provider->services->jop_name}}</td>
-                                @else
-                                <td>
-                                </td>
-                                @endif
-
+                                <td>{{$provider->email}}</td>
 
                                 @if($provider->avater !==null)
                                 <td>
@@ -139,28 +107,9 @@ Providers
                                 <td>
                                 </td>
                                 @endif
-                                @if($provider->active ==0)
-                                <th>
-                                    <span class="bg-danger p-1 text-light rounded">
-                                        Inactive
-                                    </span>
-                                </th>
-                                @else
-                                <th>
-                                    <span class="bg-primary p-1 text-light rounded">
-                                        Active
-                                    </span>
-                                </th>
-                                @endif
+                    
                                 <td>
-                                    <a class="btn @if($provider->active==0) btn-primary @else btn-dark @endif btn-sm" href="{{route('admin.providers.toggle-status',$provider->id)}}">
-                                        @if($provider->active==0)
-                                        <i class="fa fa-check"></i>
-                                        @else
-                                        <i class="fa fa-times"></i>
-                                        @endif
-
-                                    </a>
+                                  
 
 
                                     <!-- Button trigger modal update -->
@@ -189,24 +138,11 @@ Providers
                                                         </br>
                                                         <input type="text" name="username" class="form-control" placeholder="Username" value="{{ $provider->username }}">
                                                         </br>
-                                                        <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ $provider->phone }}">
+                                                        <input type="text" name="email" class="form-control" placeholder="email" value="{{ $provider->email }}">
                                                         </br>
-                                                        <input type="password" name="password" class="form-control" placeholder="Password" value="{{ $provider->password }}">
+                                                        <label style="font-size: 13px; font-weight: bold;" class="ml-3"> Password </label>
+                                                        <input type="password" name="password" class="form-control" placeholder="Password" value="{{ $provider->password}}">
                                                         </br>
-                                                        <input type="text" name="years_experience" class="form-control" placeholder="Years of Experience" value="{{ $provider->years_experience }}">
-                                                        </br>
-                                                        <label style="font-size: 13px; font-weight: bold;" class="ml-3"> Service </label>
-                                                        <select name="service_id" class="form-control">
-                                                            @foreach ($services as $service)
-                                                            <option value="{{ $service->id }}" @if($provider->service_id == $service->id) selected @endif>{{ $service->service_name }}</option>
-                                                            @endforeach
-                                                        </select> </br>
-                                                        <label style="font-size: 13px; font-weight: bold;" class="ml-3">Location</label>
-                                                        <select name="location_id" class="form-control">
-                                                            @foreach ($locations as $location)
-                                                            <option value="{{ $location->id }}" @if($provider->location_id == $location->id) selected @endif>{{ $location->title }}</option>
-                                                            @endforeach
-                                                        </select> </br>
                                                         <label style="font-size: 13px; font-weight: bold;" class="ml-3">Avatar (Optional)</label>
                                                         <input type="file" name="avater" class="form-control">
                                                 </div>
