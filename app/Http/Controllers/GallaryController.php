@@ -136,6 +136,11 @@ class GallaryController extends Controller
     {
         return response()->download(storage_path('app/public/pdf/' . $fileName));
     }
+    public function downloadVideo($fileName)
+    {
+        return response()->download(public_path('subCategories/videos/' . $fileName));
+    }
+
 
     // public function toggle(Service $service)
     // {

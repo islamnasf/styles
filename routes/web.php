@@ -47,6 +47,8 @@ route::group(['prefix' => 'dashboard/gallery/'], function () {
 //
 Route::get('/pdfdownload/{fileName}', [GallaryController::class, 'download'])->name('pdfDownload');
 //////////////
+Route::get('/videoDownload/{fileName}', [GallaryController::class, 'downloadVideo'])->name('videoDownload');
+
 
 
 Route::prefix('admin')->group(function () {
