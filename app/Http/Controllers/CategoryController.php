@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'image' => 'image|max:2048',
+            'image' => 'image',
         ], [
             'name.required' => 'The  name field is required.',
             'name.max' => 'The  name may not be greater than :max characters.',

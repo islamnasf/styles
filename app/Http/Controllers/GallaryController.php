@@ -23,7 +23,7 @@ class GallaryController extends Controller
         $validatedData = $request->validate([
             'pdf' => 'file|mimes:pdf',
             'video' => 'file',
-            'image' => 'image|max:2048',
+            'image' => 'image',
         ], [
             'pdf.file' => 'The file must be a PDF.',
             'video.file' => 'The file must be a video ',
@@ -77,7 +77,7 @@ class GallaryController extends Controller
     public function update(Request $request, int $sr)
     {
         $validatedData = $request->validate([
-            'image' => 'image|max:2048',
+            'image' => 'image',
             'pdf' => 'file|mimes:pdf',
             'video' => 'file',
         ], [
