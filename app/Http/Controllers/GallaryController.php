@@ -22,9 +22,11 @@ class GallaryController extends Controller
     {
         $validatedData = $request->validate([
             'pdf' => 'file|mimes:pdf',
+            'sub_category_id'=>'required',
             'video' => 'file',
             'image' => 'image',
         ], [
+            'sub_category_id.required' => 'The subCategory Is Requires .',
             'pdf.file' => 'The file must be a PDF.',
             'video.file' => 'The file must be a video ',
             'image.image' => 'The file must be an image.',

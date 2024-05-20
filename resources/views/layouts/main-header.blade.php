@@ -3,8 +3,8 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="{{ URL::asset('assets/images/logo-dark.png ') }}" alt=""></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src=" {{ URL::asset('assets/images/logo-icon-dark.png') }}" alt=""></a>
+                <a class="navbar-brand brand-logo" href="{{route('dashboard')}}"><img src="{{ URL::asset('assets/images/logo-dark.png ') }}" alt="" style="border-radius: 20px;"></a>
+                <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src=" {{ URL::asset('assets/images/logo-icon-dark.png') }}" alt="" ></a>
             </div>
             <!-- Top bar left -->
             <ul class="nav navbar-nav mr-auto">

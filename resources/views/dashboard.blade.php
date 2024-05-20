@@ -19,6 +19,11 @@ dashboard
         </div>
     </div>
 </div>
+<div class="row">
+        <div class="col-sm-12">
+        <img src="{{ URL::asset('assets/images/logo-dark.png') }}" alt="" style=" width:100%; margin-bottom: 20px;" >
+        </div>
+    </div>
 <!-- breadcrumb -->
 @endsection
 @section('content')
