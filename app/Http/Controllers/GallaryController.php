@@ -26,7 +26,7 @@ class GallaryController extends Controller
             'video' => 'file',
             'image' => 'image',
         ], [
-            'sub_category_id.required' => 'The subCategory Is Requires .',
+            'sub_category_id.required' => 'The SubCategory is Required .',
             'pdf.file' => 'The file must be a PDF.',
             'video.file' => 'The file must be a video ',
             'image.image' => 'The file must be an image.',
